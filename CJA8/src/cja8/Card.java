@@ -19,4 +19,15 @@ public class Card {
     static String[] Palo = {"{Tréboles}", "{Corazones}", "{Picas}", "{Diamantes}"};
     static String[] Color = {"{Rojo}", "{Negro}"};
     static String[] Valor = {"{A}", "{2}", "{3}", "{4}", "{5}", "{6}", "{7}", "{8}", "{9}", "{10}", "{J}", "{Q}", "{K}"};
+    
+    public static String dealCards() {
+        if (Card.selectedCard < Deck.deckCards.size()) {
+            Card.subtract++;
+            Card.remainingCards = Card.cards - Card.subtract;
+            return Deck.deckCards.remove(Card.selectedCard);
+        } else {
+            System.out.println("\nQuedan {0}\n");
+        }
+        return null;
+    }
 }
