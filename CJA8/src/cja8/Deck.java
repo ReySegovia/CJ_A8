@@ -14,7 +14,7 @@ import java.util.*;
 
 public class Deck {
     private Card[] deck;
-    ArrayList<String> deckCards = new ArrayList<>();
+    static ArrayList<String> deckCards = new ArrayList<>();
     ArrayList<String> hand = new ArrayList<>();
 
     public void deck() {
@@ -30,33 +30,22 @@ public class Deck {
     }
 
     public void head() {
-        System.out.print(dealCards());
+        System.out.print(Card.dealCards());
         System.out.println("\nQuedan {" +Card.remainingCards+"}\n");
     }
     
     public void pick() {
-        System.out.print(dealCards() );
+        System.out.print(Card.dealCards() );
         System.out.println("\nQuedan {" +Card.remainingCards+"}\n");
     }
     
     public void hand () {
-        hand.add(dealCards());
-        hand.add(dealCards());
-        hand.add(dealCards());
-        hand.add(dealCards());
-        hand.add(dealCards());
+        hand.add(Card.dealCards());
+        hand.add(Card.dealCards());
+        hand.add(Card.dealCards());
+        hand.add(Card.dealCards());
+        hand.add(Card.dealCards());
         System.out.print(Arrays.toString(hand.toArray()));
         System.out.println("\nQuedan {" + Card.remainingCards + "}\n");
-    }
-    
-    public String dealCards() {
-        if (Card.selectedCard < deckCards.size()) {
-            Card.subtract++;
-            Card.remainingCards = Card.cards - Card.subtract;
-            return deckCards.remove(Card.selectedCard);
-        } else {
-            System.out.println("\nQuedan {0}\n");
-        }
-        return null;
     }
 }
